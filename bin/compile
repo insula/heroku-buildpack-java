@@ -57,13 +57,13 @@ echo "-----> executing $BUILDCMD"
 
 $BUILDCMD 2>&1 | sed -u 's/^/       /'
 
-echo "-----> Removing unused artifacts"
-find target/* -maxdepth 1 | egrep -v '(.*war|target/dependency)' | xargs rm -fR
-
 if [ "${PIPESTATUS[*]}" != "0 0" ]; then
   echo " !     Failed to build app with Maven"
   exit 1
 fi
+
+echo "-----> Removing unused artifacts"
+find target/* -maxdepth 1 | egrep -v '(.*war|target/dependency)' | xargs rm -fR
 
 # finalize cache
 if [ "false" == $KEEP_M2_CACHE ]; then

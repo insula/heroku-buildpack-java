@@ -58,7 +58,7 @@ echo "-----> executing $BUILDCMD"
 $BUILDCMD 2>&1 | sed -u 's/^/       /'
 
 echo "-----> Removing unused artifacts"
-find -E target \! -regex '(target/.*war|target/dependency)' -d 1 -print | xargs rm -fR
+find target/* -maxdepth 1 | egrep -v '(.*war|target/dependency)' | xargs rm -fR
 
 if [ "${PIPESTATUS[*]}" != "0 0" ]; then
   echo " !     Failed to build app with Maven"

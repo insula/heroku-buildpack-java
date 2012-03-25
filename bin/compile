@@ -62,8 +62,9 @@ if [ "${PIPESTATUS[*]}" != "0 0" ]; then
   exit 1
 fi
 
-echo "-----> Removing unused artifacts"
+echo -n "-----> Removing unused artifacts....."
 find target/* -maxdepth 1 | egrep -v '(.*war|target/dependency)' | xargs rm -fR
+echo " done"
 
 # finalize cache
 if [ "false" == $KEEP_M2_CACHE ]; then

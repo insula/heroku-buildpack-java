@@ -9,8 +9,11 @@ config_vars:
   PATH: /usr/local/bin:/usr/bin:/bin
   JAVA_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops
   MAVEN_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops 
+  LANG: en_US.UTF-8
+  TZ: America/Sao_Paulo
+  MAVEN_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops 
 addons:
-  shared-database:5mb
+  amazon_rds
 
 
 EOF

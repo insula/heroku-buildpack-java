@@ -63,7 +63,7 @@ if [ "${PIPESTATUS[*]}" != "0 0" ]; then
 fi
 
 echo -n "-----> Removing unused artifacts....."
-find target/* -maxdepth 1 | egrep -v '(.*war|target/dependency)' | xargs rm -fR
+find target/* -maxdepth 1 | egrep -v '(.*war|.*jar|target/dependency)' | xargs rm -fR
 echo " done"
 
 # finalize cache
